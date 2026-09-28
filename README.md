@@ -38,15 +38,3 @@ usa un motor más liviano basado en navegador).
 ├── references.bib            # bibliografía (DeLong 1988, Sun & Xu 2014, McNemar 1947, etc.)
 └── figures/                  # imágenes PNG extraídas del notebook ya ejecutado
 ```
-
-## Antes de entregar
-
-- Reemplaza `author: "Nombre del estudiante"` en `_config.yml` por tu nombre real.
-- Revisa `05_lime.md`: las explicaciones HTML interactivas de LIME no se pudieron
-  incrustar como texto (son widgets HTML de `exp.show_in_notebook`); considera exportar
-  una captura de pantalla de esas dos explicaciones desde tu notebook y agregarlas como
-  imágenes en `figures/` (`lime_instancia_8.png`, `lime_instancia_11.png`), referenciándolas
-  con un bloque ```` ```{figure} ```` como las demás.
-- Si necesitas incluir además el notebook original ejecutado como anexo navegable, puedes
-  copiarlo a esta carpeta y agregar una línea `- file: notebook_original` al final de
-  `_toc.yml` (Jupyter Book puede renderizar `.ipynb` directamente).

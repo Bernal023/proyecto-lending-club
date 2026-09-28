@@ -29,20 +29,16 @@ efectivamente termina en `Charged Off`.
 
 ## 5.3 Interpretación cualitativa
 
-*(Las explicaciones de LIME se generaron como visualizaciones HTML interactivas
-—`exp.show_in_notebook(show_table=True)`— dentro del notebook original de Colab, con la
-lista de las 10 variables de mayor peso y su contribución local a la probabilidad predicha
-para cada una de las dos instancias. Se recomienda incluir aquí una captura de pantalla o
-exportar `exp.as_list()` a una tabla si se desea documentar el detalle exacto de los pesos
-por variable; el notebook fuente conserva ambas explicaciones completas.)*
+A continuación, se presentan las explicaciones visuales de LIME con las variables más influyentes para los dos errores de predicción:
 
-En términos generales, dado el análisis de importancia del {doc}`01_eda` (donde
-`int_rate`, `fico_range_high`, `grade` y `term` mostraron la asociación más fuerte con
-`default`), es esperable que estas mismas variables dominen las explicaciones locales de
-LIME para las instancias examinadas — y que, en los dos falsos negativos observados,
-LIME probablemente muestre una combinación de señales contradictorias (por ejemplo, un
-buen `fico_range_high`/`grade` favoreciendo "no default" pese a que el préstamo sí cayó en
-impago), lo que explicaría por qué el modelo se equivocó en esas instancias específicas.
+![Explicación LIME para Instancias #8 y #11](figures/LIME.png)
+
+El análisis detallado de los gráficos revela el comportamiento interno del modelo ante los dos falsos negativos:
+
+- **Instancia #8:** El modelo predijo "Fully Paid" con una probabilidad de 0.72. Las variables que correctamente empujaban la predicción hacia el default (Charged Off) fueron una tasa de interés alta (`num__int_rate > 0.58`) con un peso de 0.14, un plazo de 60 meses (`cat__term_60 months`) con un peso de 0.07, y una alta relación deuda-ingreso (`num__dti > 0.60`) con un peso de 0.04. Sin embargo, esta señal de riesgo fue contrarrestada por múltiples variables geográficas y de propósito del préstamo (estados NE, MS, ME, WY y propósito `small_business`), las cuales sumaron el peso suficiente en la dirección opuesta para inclinar la balanza hacia la clase negativa.
+- **Instancia #11:** El modelo predijo "Fully Paid" con una probabilidad de 0.64. Nuevamente, el plazo de 60 meses actuó como el principal indicador de riesgo de default (peso de 0.08). No obstante, una acumulación masiva de variables categóricas geográficas (estados MS, DE, ID, VT, OR, ME, OK) y el propósito `small_business` dominaron la predicción local a favor del pago completo.
+
+**Conclusión del análisis local:** Las explicaciones de LIME demuestran que el modelo sufre de una sobredependencia en variables categóricas dispersas (específicamente la ubicación estatal del prestatario y el propósito del préstamo) al momento de tomar decisiones límite. Aunque el modelo captura correctamente señales financieras fuertes (como tasas de interés altas y plazos largos), el "ruido" introducido por la codificación de múltiples estados termina diluyendo el riesgo real, forzando al modelo a predecir "Fully Paid" de manera errónea.
 
 ## 5.4 Limitaciones de LIME en un entorno distribuido
 

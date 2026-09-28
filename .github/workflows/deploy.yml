@@ -16,10 +16,10 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
-        python-version: 3.11
+        python-version: "3.11"
     - name: Install dependencies
       run: |
-        pip install -U jupyter-book
+        pip install "jupyter-book<=0.15.1"
     - name: Build the book
       run: |
         jupyter-book build .

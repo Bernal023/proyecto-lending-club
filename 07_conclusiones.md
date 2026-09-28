@@ -135,7 +135,7 @@ AUC por sí solo no deja ver: **su recall a umbral 0.5 es muy bajo** (0.036–0.
 significa que, tal como están configurados, identificarían muy pocos de los préstamos que
 realmente terminan en default — un hallazgo con implicancias directas para el objetivo de
 negocio (reducir pérdidas por impago) que motivaría, como siguiente paso, explorar el
-ajuste de umbral de decisión (Sección 9.3.6 del curso) y/o técnicas de balanceo de clases
+ajuste de umbral de decisión y/o técnicas de balanceo de clases
 que no se aplicaron en esta iteración.
 
 Finalmente, la comparación de tiempos de cómputo entre scikit-learn y PySpark de este

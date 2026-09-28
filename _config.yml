@@ -1,0 +1,22 @@
+title: "Proyecto Integrador de Aprendizaje Automatico"
+subtitle: "Prediccion de default en prestamos de Lending Club: scikit-learn vs. PySpark"
+author: "Nombre del estudiante"
+logo: ""
+copyright: "2026"
+
+execute:
+  execute_notebooks: "off"
+
+html:
+  use_repository_button: false
+  use_issues_button: false
+  use_edit_page_button: false
+
+parse:
+  myst_enable_extensions:
+    - dollarmath
+    - amsmath
+    - colon_fence
+
+bibtex_bibfiles:
+  - references.bib

@@ -1,0 +1,10 @@
+format: jb-book
+root: intro
+chapters:
+  - file: 01_eda
+  - file: 02_preprocesamiento
+  - file: 03_modelado
+  - file: 04_evaluacion_estadistica
+  - file: 05_lime
+  - file: 06_comparacion_final
+  - file: 07_conclusiones

@@ -2,7 +2,7 @@
 
 ## Predicción de default en préstamos de Lending Club: scikit-learn vs. PySpark
 
-**Tarea 1 Mateo Bernal y Jassan Arteta**
+**Tarea 1 - Mateo Bernal y Jassan Arteta**
 
 ### 9.10.1 Objetivo
 

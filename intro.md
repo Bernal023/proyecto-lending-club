@@ -2,6 +2,8 @@
 
 ## Predicción de default en préstamos de Lending Club: scikit-learn vs. PySpark
 
+**Tarea 1 Mateo Bernal y Jassan Arteta**
+
 ### 9.10.1 Objetivo
 
 Construir modelos de clasificación supervisada para predecir si un préstamo emitido por
